@@ -3,14 +3,17 @@
     box-sizing: border-box;
 }
 
+html{
+    font-family: Spartan;
+    font-weight: 700;
+}
+
 body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: hsl(222, 26%, 31%);
-    font-family: Spartan;
-    font-weight: 700;
 }
 
 .calc-container{
@@ -45,9 +48,9 @@ body{
 
 .theme-toggle{
     /* border: 1px solid green; */
-    width: 85px;
+    width: 50px;
     margin-left: 20px;
-    padding: 5px;
+    padding: 1px;
     border-radius: 20px;
     background-color: hsl(223, 31%, 20%);
     display: flex;
@@ -65,6 +68,8 @@ body{
     padding: 4px;
     margin: 5px;
 }
+
+
 
 .entry-point{
     width: 100%;
@@ -95,7 +100,7 @@ body{
     ". . . ."
     ". . . ."
     "reset reset equal equal";
-    padding: 20px;
+    padding: 25px;
 }
 
 .reset { grid-area: reset; }
@@ -117,6 +122,21 @@ body{
     background-color: hsl(30, 25%, 89%);
     box-shadow: 0px 2px 3px hsl(28, 16%, 65%);
     cursor: pointer;
+    color: hsl(221, 14%, 31%);
+}
+
+.gb{
+    background-color: hsl(225, 21%, 49%);
+    box-shadow: 0px 2px 3px hsl(224, 28%, 35%);
+    color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.rb{
+    background-color: hsl(6, 63%, 50%);
+    box-shadow: 0px 2px 3px hsl(6, 70%, 34%);
+    color: hsl(0, 0%, 100%);
 }
 
 

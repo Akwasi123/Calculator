@@ -43,7 +43,7 @@
       <!-- end of top content -->
 
       <!-- entry point -->
-      <input type="text" class="entry-point">
+      <input type="text" class="entry-point" id="input">
 
       <!-- numpad -->
       <div class="numpad">
@@ -51,7 +51,7 @@
         <div class="grid-item">7</div>
         <div class="grid-item">8</div>
         <div class="grid-item">9</div>
-        <div class="grid-item">Del</div>
+        <div class="grid-item gb">Del</div>
         <div class="grid-item">4</div>
         <div class="grid-item">5</div>
         <div class="grid-item">6</div>
@@ -64,13 +64,15 @@
         <div class="grid-item">0</div>
         <div class="grid-item">/</div>
         <div class="grid-item">x</div>
-        <div class="grid-item reset">RESET</div>
-        <div class="grid-item equal">=</div>
+        <div class="grid-item reset gb" onclick="clearAll()">RESET</div>
+        <div class="grid-item equal rb">=</div>
 
       </div>
     </div>
     
   </div>
 
+
+<script src="script.js"></script>
 </body>
 </html>
