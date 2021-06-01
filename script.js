@@ -72,12 +72,13 @@ function clearAll(){
 }
 
 
-function add(){
-    let sum = 0;
-    for(let i = 0; i < inputTExt.length; i++){
-        sum += inputTExt[i];
-    }
-    
-}
+/**
+ * Complete add function
+ * 
+ * make sure to use rest and spread operators to take multiple inputs
+ * within the function definition
+ * Also, make sure that the calculator is able to add single digits and 
+ * that it adds as the add button is pressed
+ */
 
 
