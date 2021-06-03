@@ -1,84 +1,132 @@
-const gridItems = document.querySelector(".numpad").children;
-let entryPoint = document.getElementById('input');
-let inputTExt = "";
+class Calculator{
+    constructor(memoryText, currentElementText){
+        this.memoryText = memoryText;
+        this.currentElementText = currentElementText;
+        this.reset();
+    }
 
+    reset() {
+        this.memory = '';
+        this.currentElement = '';
+        this.operation = undefined;
+    }
 
-// console.log(gridItems);
-gridItems[0].addEventListener('click', () => {
-    inputTExt += 7;
-    entryPoint.value = inputTExt;
-});
+    delete(){
+        this.currentElement = this.currentElement.toString().slice(0, -1);
+    }
 
-gridItems[1].addEventListener('click', () => {
-    inputTExt += 8;
-    entryPoint.value = inputTExt;
-});
-gridItems[2].addEventListener('click', () => {
-    inputTExt += 9;
-    entryPoint.value = inputTExt;
-});
+    addNumber(number){
+        if(number === '.' && this.currentElement.includes('.')){
+            return;
+        }
 
-gridItems[4].addEventListener('click', () => {
-    inputTExt += 4;
-    entryPoint.value = inputTExt;
-});
+        this.currentElement = this.currentElement.toString() + number.toString();
+    }
 
-gridItems[5].addEventListener('click', () => {
-    inputTExt += 5;
-    entryPoint.value = inputTExt;
-});
+    chooseOperation(operation){
+        if (this.currentElement === '') return
+        if (this.memory !== '') {
+            this.compute();
+        }
+        this.operation = operation;
+        this.memory = this.currentElement;
+        this.currentElement = '';
+    }
 
-gridItems[6].addEventListener('click', () => {
-    inputTExt += 6;
-    entryPoint.value = inputTExt;
-});
+    compute(){
+        let computation
+        const prev = parseFloat(this.memory)
+        const current = parseFloat(this.currentElement)
+        if (isNaN(prev) || isNaN(current)) return
+        switch (this.operation) {
+          case '+':
+            computation = prev + current
+            break
+          case '-':
+            computation = prev - current
+            break
+          case 'x`':
+            computation = prev * current
+            break
+          case '÷':
+            computation = prev / current
+            break
+          default:
+            return
+        }
+        this.currentElement = computation;
+        this.operation = undefined;
+        this.memory = '';
+    }
 
-gridItems[8].addEventListener('click', () => {
-    inputTExt += 1;
-    entryPoint.value = inputTExt;
-});
+    getDisplayNumber(number){
+        const stringNumber = number.toString();
+        const integerDigits = parseFloat(stringNumber.split('.')[0]);
+        const decimalDigits = stringNumber.split('.')[1];
+        let integerDisplay;
+        if (isNaN(integerDigits)) {
+        integerDisplay = '';
+        } else {
+        integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 });
+        }
+        if (decimalDigits != null) {
+        return `${integerDisplay}.${decimalDigits}`;
+        } else {
+        return integerDisplay;
+        }
+    }
 
-gridItems[9].addEventListener('click', () => {
-    inputTExt += 2;
-    entryPoint.value = inputTExt;
-});
-
-gridItems[10].addEventListener('click', () => {
-    inputTExt += 3;
-    entryPoint.value = inputTExt;
-});
-
-gridItems[12].addEventListener('click', () => {
-    inputTExt += ".";
-    entryPoint.value = inputTExt;
-});
-
-gridItems[13].addEventListener('click', () => {
-    inputTExt += 0;
-    entryPoint.value = inputTExt;
-});
-
-gridItems[3].addEventListener('click', () => {
-    entryPoint.value = inputTExt.substring(0, inputTExt.length-1);
-    inputTExt = entryPoint.value;
-});
-
-
-
-
-function clearAll(){
-    inputTExt = "";
-    entryPoint.value = null;
+    updateDisplay(){
+        this.currentElementText.innerText =
+        this.getDisplayNumber(this.currentElement);
+        if (this.operation != null) {
+        this.memoryText.innerText =
+            `${this.getDisplayNumber(this.memory)} ${this.operation}`;
+        } else {
+        this.memoryText.innerText = '';
+        }
+    }
 }
 
 
-/**
- * Complete add function
- * 
- * make sure to use rest and spread operators to take multiple inputs
- * within the function definition
- * Also, make sure that the calculator is able to add single digits and 
- * that it adds as the add button is pressed
- */
 
 
+MAX_LENGTH = 21;
+const numberButtons = document.querySelectorAll('[data-number]');
+const operationButtons = document.querySelectorAll('[data-operation]');
+const deleteButton = document.querySelector('[data-delete]');
+const resetButton = document.querySelector('[data-reset]');
+const equalsButton = document.querySelector('[data-equal]');
+const currentElementText =  document.querySelector('[data-current-element]');
+const memoryText = document.querySelector('[data-memory-element]');
+
+const calculator = new Calculator(memoryText, currentElementText);
+
+numberButtons.forEach(button =>{
+    button.addEventListener('click', () => {
+        console.log(calculator.addNumber(button.innerText));
+        calculator.updateDisplay();
+    });
+});
+
+operationButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    calculator.chooseOperation(button.innerText);
+    calculator.updateDisplay();
+  })
+})
+
+equalsButton.addEventListener('click', button => {
+  calculator.compute();
+  calculator.updateDisplay();
+})
+
+resetButton.addEventListener('click', button => {
+  calculator.reset();
+  calculator.updateDisplay();
+})
+
+deleteButton.addEventListener('click', button => {
+  calculator.delete();
+  calculator.updateDisplay();
+})

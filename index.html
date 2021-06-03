@@ -43,29 +43,32 @@
       <!-- end of top content -->
 
       <!-- entry point -->
-      <input type="text" class="entry-point" id="input">
+      <div class="entry-point">
+        <div data-memory-element class="memory"></div>
+        <div data-current-element class="current"></div>
+      </div>
 
       <!-- numpad -->
       <div class="numpad">
         <!-- grid items -->
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>
-        <div class="grid-item gb">Del</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item" onclick="add()">+</div>
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">-</div>
-        <div class="grid-item">.</div>
-        <div class="grid-item">0</div>
-        <div class="grid-item">/</div>
-        <div class="grid-item">x</div>
-        <div class="grid-item reset gb" onclick="clearAll()">RESET</div>
-        <div class="grid-item equal rb">=</div>
+        <div class="grid-item" data-number>7</div>
+        <div class="grid-item" data-number>8</div>
+        <div class="grid-item" data-number>9</div>
+        <div class="grid-item gb" data-delete>Del</div>
+        <div class="grid-item" data-number>4</div>
+        <div class="grid-item" data-number>5</div>
+        <div class="grid-item" data-number>6</div>
+        <div class="grid-item" data-operation>+</div>
+        <div class="grid-item" data-number>1</div>
+        <div class="grid-item" data-number>2</div>
+        <div class="grid-item" data-number>3</div>
+        <div class="grid-item" data-operation>-</div>
+        <div class="grid-item" data-number="">.</div>
+        <div class="grid-item" data-number>0</div>
+        <div class="grid-item" data-operation>÷</div>
+        <div class="grid-item" data-operation>x</div>
+        <div class="grid-item reset gb" data-reset>RESET</div>
+        <div class="grid-item equal rb" data-equal>=</div>
 
       </div>
     </div>
