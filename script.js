@@ -24,7 +24,7 @@ class Calculator{
     }
 
     chooseOperation(operation){
-        if (this.currentElement === '') return
+        if (this.currentElement === '') return;
         if (this.memory !== '') {
             this.compute();
         }
@@ -34,25 +34,25 @@ class Calculator{
     }
 
     compute(){
-        let computation
-        const prev = parseFloat(this.memory)
-        const current = parseFloat(this.currentElement)
+        let computation;
+        const prev = parseFloat(this.memory);
+        const current = parseFloat(this.currentElement);
         if (isNaN(prev) || isNaN(current)) return
         switch (this.operation) {
           case '+':
-            computation = prev + current
-            break
+            computation = prev + current;
+            break;
           case '-':
-            computation = prev - current
-            break
+            computation = prev - current;
+            break;
           case 'x`':
-            computation = prev * current
-            break
+            computation = prev * current;
+            break;
           case '÷':
-            computation = prev / current
-            break
+            computation = prev / current;
+            break;
           default:
-            return
+            return;
         }
         this.currentElement = computation;
         this.operation = undefined;
@@ -77,11 +77,9 @@ class Calculator{
     }
 
     updateDisplay(){
-        this.currentElementText.innerText =
-        this.getDisplayNumber(this.currentElement);
+        this.currentElementText.innerText = this.getDisplayNumber(this.currentElement);
         if (this.operation != null) {
-        this.memoryText.innerText =
-            `${this.getDisplayNumber(this.memory)} ${this.operation}`;
+        this.memoryText.innerText = `${this.getDisplayNumber(this.memory)} ${this.operation}`;
         } else {
         this.memoryText.innerText = '';
         }
