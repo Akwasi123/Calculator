@@ -45,7 +45,7 @@ class Calculator{
           case '-':
             computation = prev - current;
             break;
-          case 'x`':
+          case '*':
             computation = prev * current;
             break;
           case '÷':
@@ -102,7 +102,7 @@ const calculator = new Calculator(memoryText, currentElementText);
 
 numberButtons.forEach(button =>{
     button.addEventListener('click', () => {
-        console.log(calculator.addNumber(button.innerText));
+        calculator.addNumber(button.innerText);
         calculator.updateDisplay();
     });
 });
@@ -128,3 +128,139 @@ deleteButton.addEventListener('click', button => {
   calculator.delete();
   calculator.updateDisplay();
 })
+
+
+const themeButtons = document.querySelector('.theme-toggle').children;
+const body = document.body;
+const entryPoint = document.querySelector('.entry-point');
+const themeToggle = document.querySelector('.theme-toggle');
+const keyPad = document.querySelector('.numpad');
+const pageText = document.querySelectorAll('.t-change');
+const first = document.querySelector('.first');
+const second = document.querySelector('.second');
+const third = document.querySelector('.third');
+
+console.log(first)
+
+themeButtons[0].addEventListener('click', () =>{
+    themeButtons[0].style.backgroundColor = 'hsl(6, 63%, 50%)';
+    themeOne();
+});
+
+themeButtons[1].addEventListener('click', () =>{
+    themeButtons[1].style.backgroundColor = 'hsl(6, 70%, 34%)';
+    themeTwo();
+});
+
+themeButtons[2].addEventListener('click', () =>{themeButtons[1].style.backgroundColor = 'hsl(223, 31%, 20%)';
+    themeButtons[2].style.backgroundColor = 'hsl(176, 100%, 44%)';
+    themeThree();
+});
+
+// function th
+
+
+function themeOne(){
+    body.style.backgroundColor = "hsl(222, 26%, 31%)";
+    entryPoint.style.backgroundColor = "hsl(224, 36%, 15%)";
+    themeToggle.style.backgroundColor = "hsl(223, 31%, 20%)";
+    keyPad.style.backgroundColor = "hsl(223, 31%, 20%)";
+    deleteButton.style.backgroundColor = "hsl(225, 21%, 49%)";
+    deleteButton.style.boxShadow = "0px 2px 3px hsl(224, 28%, 35%)";
+    resetButton.style.backgroundColor = "hsl(225, 21%, 49%)";
+    resetButton.style.boxShadow = "0px 2px 3px hsl(224, 28%, 35%)";
+    equalsButton.style.backgroundColor = "hsl(6, 63%, 50%)";
+    equalsButton.style.boxShadow = "0px 2px 3px hsl(6, 70%, 34%)";
+    pageText[0].style.color = "hsl(0, 0%, 100%)";
+    pageText[1].style.color = "hsl(0, 0%, 100%)";
+    pageText[2].style.color = "hsl(0, 0%, 100%)";
+    pageText[3].style.color = "hsl(0, 0%, 100%)";
+    themeButtons[1].style.backgroundColor = 'hsl(223, 31%, 20%)';
+    themeButtons[2].style.backgroundColor = 'hsl(223, 31%, 20%)';
+    numberButtons.forEach(item =>{
+        item.style.backgroundColor = "hsl(30, 25%, 89%)";
+        item.style.color = "hsl(60, 10%, 19%)";
+        item.style.boxShadow = "0px 2px 3px hsl(35, 11%, 61%)";
+    });
+
+    operationButtons.forEach(item =>{
+        item.style.backgroundColor = "hsl(30, 25%, 89%)";
+        item.style.color = "hsl(60, 10%, 19%)";
+        item.style.boxShadow = "0px 2px 3px hsl(35, 11%, 61%)";
+    });
+
+    first.style.color = 'hsl(0, 0%, 100%)'
+    second.style.color = 'hsl(0, 0%, 100%)'
+    third.style.color = 'hsl(0, 0%, 100%)'
+    
+}
+
+function themeTwo(){
+    body.style.backgroundColor = "hsl(0, 0%, 90%)";
+    entryPoint.style.backgroundColor = "hsl(0, 0%, 93%)";
+    themeToggle.style.backgroundColor = "hsl(0, 5%, 81%)";
+    keyPad.style.backgroundColor = "hsl(0, 5%, 81%)";
+    deleteButton.style.backgroundColor = "hsl(185, 42%, 37%)";
+    deleteButton.style.boxShadow = "0px 2px 3px hsl(185, 58%, 25%)";
+    resetButton.style.backgroundColor = "hsl(185, 42%, 37%)";
+    resetButton.style.boxShadow = "0px 2px 3px hsl(185, 58%, 25%)";
+    equalsButton.style.backgroundColor = "hsl(25, 98%, 40%)";
+    equalsButton.style.boxShadow = "0px 2px 3px hsl(25, 99%, 27%)";
+    pageText[0].style.color = "black";
+    pageText[1].style.color = "black";
+    pageText[2].style.color = "black";
+    pageText[3].style.color = "black";
+    themeButtons[0].style.backgroundColor = 'hsl(0, 5%, 81%)';
+    themeButtons[2].style.backgroundColor = 'hsl(0, 5%, 81%)';
+    numberButtons.forEach(item =>{
+        item.style.backgroundColor = "hsl(45, 7%, 89%)";
+        item.style.color = "hsl(60, 10%, 19%)";
+        item.style.boxShadow = "0px 2px 3px hsl(35, 11%, 61%)";
+    });
+
+    operationButtons.forEach(item =>{
+        item.style.backgroundColor = "hsl(45, 7%, 89%)";
+        item.style.color = "hsl(60, 10%, 19%)";
+        item.style.boxShadow = "0px 2px 3px hsl(35, 11%, 61%)";
+    });
+
+    first.style.color = 'black'
+    second.style.color = 'black'
+    third.style.color = 'black'
+}
+
+function themeThree(){
+    body.style.backgroundColor = "hsl(268, 75%, 9%)";
+    entryPoint.style.backgroundColor = "hsl(268, 71%, 12%)";
+    themeToggle.style.backgroundColor = "hsl(268, 71%, 12%)";
+    keyPad.style.backgroundColor = "hsl(268, 71%, 12%)";
+    deleteButton.style.backgroundColor = "hsl(281, 89%, 26%)";
+    deleteButton.style.boxShadow = "0px 2px 3px hsl(285, 91%, 52%)";
+    resetButton.style.backgroundColor = "hsl(281, 89%, 26%)";
+    resetButton.style.boxShadow = "0px 2px 3px hsl(285, 91%, 52%)";
+    equalsButton.style.backgroundColor = "hsl(176, 100%, 44%)";
+    equalsButton.style.boxShadow = "0px 2px 3px hsl(177, 92%, 70%)";
+    equalsButton.style.color = "black";
+    pageText[0].style.color = "hsl(52, 100%, 62%)";
+    pageText[1].style.color = "hsl(52, 100%, 62%)";
+    pageText[2].style.color = "hsl(52, 100%, 62%)";
+    pageText[3].style.color = "hsl(52, 100%, 62%)";
+    themeButtons[0].style.backgroundColor = 'hsl(268, 71%, 12%)';
+    themeButtons[1].style.backgroundColor = 'hsl(268, 71%, 12%)';
+    numberButtons.forEach(item =>{
+        item.style.backgroundColor = "hsl(268, 47%, 21%)";
+        item.style.color = "hsl(52, 100%, 62%)";
+        item.style.boxShadow = "0px 2px 3px hsl(290, 70%, 36%)";
+    });
+
+    operationButtons.forEach(item =>{
+        item.style.backgroundColor = "hsl(268, 47%, 21%)";
+        item.style.color = "hsl(52, 100%, 62%)";
+        item.style.boxShadow = "0px 2px 3px hsl(290, 70%, 36%)";
+    });
+
+    first.style.color = 'hsl(52, 100%, 62%)'
+    second.style.color = 'hsl(52, 100%, 62%)'
+    third.style.color = 'hsl(52, 100%, 62%)'
+}
+// console.log(themeButtons)

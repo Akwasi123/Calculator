@@ -14,6 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color: hsl(222, 26%, 31%);
+    color: white;
 }
 
 .calc-container{
@@ -55,28 +56,50 @@ body{
     background-color: hsl(223, 31%, 20%);
     display: flex;
     align-items: center;
+    height: 20px;
 
+}
+
+.theme-toggle span{
+    display: block;
+    border-radius: 50%;
+    width: 1%;
+    height: 5px;
+    padding: 4px;
+    margin: 4px;
+    cursor: pointer;
 }
 
 .theme-toggle span:first-child{
-    display: inline-block;
-    border-radius: 50%;
-    width: 5%;
-    height: 5px;
     background-color: hsl(6, 63%, 50%);
-    border: 1px solid red;
-    padding: 4px;
-    margin: 5px;
 }
 
+.theme-toggle .first::before{
+    content: "1";
+}
 
+.theme-toggle .second::before{
+    content: "2";
+}
+
+.theme-toggle .third::before{
+    content: "3";
+}
+
+.theme-toggle .first::before, .theme-toggle .second::before, .theme-toggle .third::before{
+    display: inline-block;
+    margin-left: -3px;
+    position: absolute;
+    top: 45px;
+    font-size: 0.8rem;
+}
 
 .entry-point{
     width: 100%;
     height: 150px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 8px;
-    background-color: hsl(223, 31%, 20%);
+    background-color: hsl(224, 36%, 15%);
     text-align: right;
     font-size: 32px;
     color: hsl(0, 0%, 100%);
@@ -95,7 +118,7 @@ body{
     margin: 30px auto;
     width: 100%;
     height: fit-content;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 8px;
     background-color: hsl(223, 31%, 20%);
     display: grid;
@@ -151,8 +174,7 @@ body{
     color: hsl(0, 0%, 100%);
 }
 
-
-
-.numpad-text{
-    
+/* theme classes */
+.theme-two{
+    box-shadow: 0px 2px 50px hsl(28, 16%, 65%);
 }
