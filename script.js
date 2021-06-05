@@ -140,8 +140,6 @@ const first = document.querySelector('.first');
 const second = document.querySelector('.second');
 const third = document.querySelector('.third');
 
-console.log(first)
-
 themeButtons[0].addEventListener('click', () =>{
     themeButtons[0].style.backgroundColor = 'hsl(6, 63%, 50%)';
     themeOne();
@@ -157,7 +155,6 @@ themeButtons[2].addEventListener('click', () =>{themeButtons[1].style.background
     themeThree();
 });
 
-// function th
 
 
 function themeOne(){
@@ -263,4 +260,3 @@ function themeThree(){
     second.style.color = 'hsl(52, 100%, 62%)'
     third.style.color = 'hsl(52, 100%, 62%)'
 }
-// console.log(themeButtons)
